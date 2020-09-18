@@ -34,6 +34,7 @@ def binary_to_true(s):
 			print('please input a number that is binary!')
 			return None
 		num += int(s[i]) * 2**(a-i-1)	
+	#print('IEEE754:', s, '   true:', str(num))
 	return num
 
 # IEEE754浮点数转化为真值
@@ -107,14 +108,15 @@ def IEEE754_figure(s1, s2):
 	tail2 = '1' + s2[9:]
 	
 	if mul1 > mul2:
-		while(mul1 == mul2):
+		while(mul1 !=  mul2):
 			tail2 = '0' + tail2[:-1]
 			mul2 += 1
 	if mul2 > mul1:
-		while(mul1 == mul2):
+		while(mul1 != mul2):
 			tail1 = '0' + tail1[:-1]
 			mul1 += 1
 	mul_com = mul1
+	#print(mul1, mul2)
 	# weishuqiuhe
 	# double sign
 	tail1 = s1[0]*2 + tail1
@@ -137,9 +139,10 @@ def IEEE754_figure(s1, s2):
 	return (-1)**minues * tail_true * 2**(mul_com)
 	
 			
-print(binary_figure('11101', '10111'))
+#print(binary_figure('11101', '10111'))
 #print(hex_to_binary('c6400000'))
-print(IEEE754_figure(hex_to_binary('c1040000'), hex_to_binary('c1040000')))
+print(IEEE754_to_true(hex_to_binary('c1040000')))
+print("result:", IEEE754_figure(hex_to_binary('c1040000'), hex_to_binary('c1840000')))
 
 
 
