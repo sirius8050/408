@@ -1,2 +1,1 @@
-# Small-useful-code
-This repository privide some small useful code .BY Zhu Dawang
+# 记录朱某学408的一些插曲
